@@ -113,7 +113,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am a **WEB** platform developer."
   location         : "Somewhere"
-  email            : "jm921106@gmail.com || supermoon.development@gmail.com"
+  email            : "supermoon.development@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
