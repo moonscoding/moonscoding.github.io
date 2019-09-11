@@ -6,8 +6,6 @@
 
 
 
-
-
 ### Type Token 
 
 > Class Literal Parameter
