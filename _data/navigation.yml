@@ -1,12 +1,45 @@
 # main links
 main:
-  # - title: "Quick-Start Guide"
-  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+   - title: "Home"
+     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+   - title: "Sample Docs"
+     url: /docs/quick-start-guide/
+   - title: "Docs"
+     url: /docs/native/
+   - title: "Posts"
+     url: /year-archive/
+#   - title: "Sample Collections"
+#     url: /collection-archive/
+#   - title: "Sitemap"
+#     url: /sitemap/
+
+
+docs:
+  - title : JAVA
+    children:
+      - title: "1. JVM"
+        url: /docs/jvm/
+      - title: "2. Native"
+        url: /docs/native/
+      - title: "3. OOP"
+        url: /docs/oop/
+      - title: "4. Exception"
+        url: /docs/exception/
+      - title: "5. Collection"
+        url: /docs/collection/
+      - title: "6. Annotation"
+        url: /docs/annotation/
+      - title: "7. Generic"
+        url: /docs/generic/
+      - title: "8. Lambda"
+        url: /docs/lambda/
+      - title: "9. Stream"
+        url: /docs/stream/
+      - title: "10. Socket"
+        url: /docs/socket/
+      - title: "11. Optional"
+        url: /docs/optionl/
+      - title: "12. Reflection"
+        url: /docs/reflection/
+      - title: "13. Thread"
+        url: /docs/thread/

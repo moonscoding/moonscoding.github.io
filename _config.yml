@@ -5,8 +5,9 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
+#############################################################################################
 # Theme Settings
-#
+#############################################################################################
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
@@ -14,23 +15,27 @@
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "contrast" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
+#############################################################################################
 # Site Settings
+#############################################################################################
 locale                   : "en-US"
-title                    : "MoonsCoding"
-title_separator          : "-"
-subtitle                 : "Version 0.1" # site tagline that appears below site title in masthead
+title                    : MoonsCoding Blog
+title_separator          : |
+subtitle                 : Version 0.1 # site tagline that appears below site title in masthead
 name                     : &name "SuperMoon" # &name is a YAML anchor which can be *referenced later
-description              : "An amazing website."
+description              : An amazing website.
 
-# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-url                      : "https://moonscoding.github.io"
+#############################################################################################
+# the base hostname & protocol for your site (e.g. "https://mmistakes.github.io")
+#############################################################################################
+url                      : https://moonscoding.github.io
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : moonscoding/moonscoding.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, false (default)
-words_per_minute         : 200
+breadcrumbs              : true # true, false (default)
+words_per_minute         : 250
 
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
@@ -72,17 +77,27 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
 
+#############################################################################################
+# Search
+#
+# Google
+# ID : 008037344137418386510:aqnrqnzay5h
+# URL : https://cse.google.com/cse?cx=008037344137418386510:aqnrqnzay5h
+# HTML :
+# <script async src="https://cse.google.com/cse.js?cx=008037344137418386510:aqnrqnzay5h"></script>
+# <div class="gcse-search"></div>
+#############################################################################################
 search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
 search_provider          : google # lunr (default), algolia, google
+google:
+  search_engine_id       : 008037344137418386510:aqnrqnzay5h # YOUR_SEARCH_ENGINE_ID
+  instant_search         : # false (default), true
 algolia:
   application_id         : # YOUR_APPLICATION_ID
   index_name             : # YOUR_INDEX_NAME
   search_only_api_key    : # YOUR_SEARCH_ONLY_API_KEY
   powered_by             : # true (default), false
-google:
-  search_engine_id       : # YOUR_SEARCH_ENGINE_ID
-  instant_search         : # false (default), true
 
 # SEO Related
 google_site_verification :
@@ -90,7 +105,9 @@ bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
 
+#############################################################################################
 # Social Sharing
+#############################################################################################
 twitter:
   username               :
 facebook:
@@ -112,7 +129,9 @@ analytics:
     tracking_id          :
     anonymize_ip         : # true, false (default)
 
+#############################################################################################
 # Site Author
+#############################################################################################
 author:
   name             : "SuperMoon"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
@@ -122,7 +141,7 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
+      url: mailto:jm921106@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -139,7 +158,9 @@ author:
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
 
+#############################################################################################
 # Site Footer
+#############################################################################################
 footer:
   links:
     - label: "Twitter"
@@ -161,7 +182,9 @@ footer:
       icon: "fab fa-fw fa-instagram"
       # url:
 
+#############################################################################################
 # Reading Files
+#############################################################################################
 include:
   - .htaccess
   - _pages
@@ -197,14 +220,18 @@ keep_files:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
+#############################################################################################
 # Conversion
+#############################################################################################
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
+#############################################################################################
 # Markdown Processing
+#############################################################################################
 kramdown:
   input: GFM
   hard_wrap: false
@@ -215,19 +242,25 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
+#############################################################################################
 # Sass/SCSS
+#############################################################################################
 sass:
   sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
+#############################################################################################
 # Outputting
+#############################################################################################
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
+#############################################################################################
 # Plugins (previously gems:)
+#############################################################################################
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -235,7 +268,9 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 
+#############################################################################################
 # mimic GitHub Pages with --safe
+#############################################################################################
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
@@ -244,6 +279,7 @@ whitelist:
   - jekyll-include-cache
 
 
+#############################################################################################
 # Archives
 #  Type
 #  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
@@ -254,6 +290,7 @@ whitelist:
 #  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
 #  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path>/my-awesome-category/index.html ~> path: /
+#############################################################################################
 category_archive:
   type: liquid
   path: /categories/
@@ -294,61 +331,69 @@ collections:
     output: true
     permalink: /:collection/:path/
 
+#############################################################################################
 # Defaults
+#
+# Facebook
+# <div id="fb-root"></div>
+# <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v4.0&appId=3623574331001278&autoLogAppEvents=1"></script>
+#
+# <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="700" data-numposts="5"></div>
+#############################################################################################
 defaults:
-# _posts
-- scope:
-    path: ""
-    type: posts
-  values:
-    layout: single
-    author_profile: true
-    read_time: true
-    comments: true
-    share: true
-    related: true
-# _pages
-- scope:
-    path: "_pages"
-    type: pages
-  values:
-    layout: single
-    author_profile: true
-# _docs
-- scope:
-    path: ""
-    type: docs
-  values:
-    layout: single
-    read_time: false
-    author_profile: false
-    share: false
-    comments: false
-    sidebar:
-      nav: "docs"
-# _recipes
-- scope:
-    path: ""
-    type: recipes
-  values:
-    layout: single
-    author_profile: true
-    share: true
-    comments: true
-# _pets
-- scope:
-    path: ""
-    type: pets
-  values:
-    layout: single
-    author_profile: true
-    share: true
-    comment: true
-# _portfolio
-- scope:
-    path: ""
-    type: portfolio
-  values:
-    layout: single
-    author_profile: false
-    share: true
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  # _docs
+  - scope:
+      path: ""
+      type: docs
+    values:
+      layout: single
+      read_time: false
+      author_profile: false
+      share: false
+      comments: false
+      sidebar:
+        nav: "docs"
+  # _recipes
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _pets
+  - scope:
+      path: ""
+      type: pets
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _portfolio
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: false
+      share: true
