@@ -12,25 +12,32 @@ toc_icon: "cog"
 
 
 
-## Optional
+## Define
+
+### empty()
+
+```java
+Optional<String> optStrA = Optional.empty();
+System.out.println(optStrA);
+```
+
+```
+Optional.empty
+```
+
+
 
 ### of()
 
 ```java
-Optional<Integer> optInt = Optional.of(1);
-System.out.println(optInt);
+Optional<Integer> optIntA = Optional.of(1);
+Optional<Integer> optIntB = Optional.of(null);
+System.out.println(optIntA);
+System.out.println(optIntB);
 ```
 
 ```
 Optional[1]
-```
-
-```java
-Optional<Integer> optInt = Optional.of(null);
-System.out.println(optInt);
-```
-
-```
 NullPointerException
 ```
 
@@ -49,34 +56,7 @@ Optional.empty
 
 
 
-### empty()
-
-```java
-Optional<String> optStrA = Optional.empty();
-System.out.println(optStrA);
-```
-
-```
-Optional.empty
-```
-
-
-
-### isPresent()
-
-```java
-Optional<Integer> optIntA = Optional.of(1);
-Optional<Integer> optIntB = Optional.ofNullable(null);
-System.out.println(optIntA.isPresent());
-System.out.println(optIntB.isPresent());
-```
-
-```
-true
-false
-```
-
-
+## Call
 
 ### get() 
 
@@ -96,7 +76,8 @@ NoSuchElementException
 
 ### orElse()
 
-- null일 경우, default 값을 설정
+- orElse(T other)
+  - null일 경우, default 값을 설정
 
 ```java
 Optional<Integer> optIntA = Optional.of(1);
@@ -113,6 +94,9 @@ System.out.println(optIntB.orElse(0));
 
 
 ### orElseGet() 
+
+- orElseGet(Supplier<? extends T> other)
+  - null일 경우, 함수인자(Supplier)를 통해 default 값을 설정
 
 ```java
 Optional<Integer> optIntA = Optional.of(1);
@@ -136,6 +120,9 @@ System.out.println(optIntB.orElseGet(supplier));
 
 
 ### orElseThrow()
+
+- orElseThrow(Supplier<? extends X> exceptionSupplier)
+  - null일 경우, 함수인자(Supplier)를 통해 예외 반환
 
 ```java
 Optional<Integer> optIntA = Optional.of(1);
@@ -168,53 +155,23 @@ orElseThrowException
 
 
 
+### isPresent()
 
-
-## Functional
-
-### map()
-
-- Optional\<U> map(Function\<? super T, Optional\<U>> mapper)
+- [1] ifPresent()
+  - return -> boolean
+- [2] ifPresent(Consumer<? super T> consumer)
 
 ```java
-int length = Optional.ofNullable("hello")
-    .map(String::trim)
-    .map(String::length)
-    .orElse(0);
+Optional<Integer> optIntA = Optional.of(1);
+Optional<Integer> optIntB = Optional.ofNullable(null);
+System.out.println(optIntA.isPresent());
+System.out.println(optIntB.isPresent());
 ```
 
-
-
-### flatMap()
-
-- Optional\<U> flatMap(Function\<? super T, Optional\<U>> mapper) 
-
-```java
-Optional<String> optString = Optional.of("input");
-
-System.out.println(optString.map(str->Optional.of("hello"))); // "Optional[Optional[hello]]"
-System.out.println(optString.map(str->"hello")); // "Optional[hello]"
-
-System.out.println(optString.flatMap(str->"hello"));
-System.out.println(optString.flatMap(str->Optional.of("hello"))); // "Optional[hello]"
 ```
-
-
-
-### filter()
-
-```java
-int length = Optional.ofNullable("hello")
-    .filter(o -> o.length() > 5) // "Optional.empty"
-    .map(String::length)
-    .orElse(0);
+true
+false
 ```
-
-
-
-### ifPresent()
-
-- ifPresent(Consumer<? super T> consumer)
 
 ```java
 Optional<String> optString = Optional.of("hello");
@@ -223,9 +180,80 @@ optString.ifPresent(str -> {
 });
 ```
 
+```
+length : 5
+```
 
 
-## Example
+
+## Stream
+
+> Optional 객체는 원소가 1개인 Stream과 같이 사용 가능
+
+
+
+### map()
+
+- Optional\<U> map(Function\<? super T, Optional\<U>> mapper)
+  - return Optional
+
+```java
+int length = Optional.ofNullable("hello")
+    .map(String::trim)
+    .map(String::length)
+    .orElse(0);
+```
+
+```
+5
+```
+
+
+
+### flatMap()
+
+- Optional\<U> flatMap(Function\<? super T, Optional\<U>> mapper) 
+  - return Optional.get()
+
+```java
+Optional<String> optString = Optional.of("hello");
+
+// map
+System.out.println(optString.map(str->str));
+System.out.println(optString.map(str->Optional.of(str)));
+
+// flatMap
+System.out.println(optString.flatMap(str->str)); // * Compile Exception
+System.out.println(optString.flatMap(str->Optional.of(str)));
+```
+
+```
+Optional[hello]
+Optional[Optional[hello]]
+
+Optional[hello]
+```
+
+
+
+### filter()
+
+```java
+int length = Optional.ofNullable("hello")
+    .filter(o -> o.length() > 5) // * Optional.empty
+    .map(String::length)
+    .orElse(0);
+```
+
+```
+0
+```
+
+
+
+
+
+## Customizing
 
 ### getAsOptional()
 
@@ -241,3 +269,8 @@ public static <T> Optional<T> getAsOptional(List<T> list, int index) {
 }
 ```
 
+
+
+> 참고
+
+- https://www.daleseo.com/java8-optional-after/
