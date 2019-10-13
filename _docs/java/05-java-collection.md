@@ -40,7 +40,7 @@ List<String> list = new ArrayList<String>(30);
 
 
 
-### Vector
+#### Vector
 
 ArrayList와 동일한 내주 저장 구조를 가짐
 
@@ -63,7 +63,7 @@ List<String> list = new LinkedList<String>();
 
 
 
-### Method
+### List API
 
 - `add()`
   - [1] boolean add(E e)
@@ -120,9 +120,9 @@ TreeSet<E> treeSet = new TreeSet<E>(new DescendingComparator());
 
 
 
+#### TreeSet API 
 
-
-#### Search Method
+**Search Method**
 
 - `first()` - 제일 낮은 객체 반환
   - E first()
@@ -143,7 +143,7 @@ TreeSet<E> treeSet = new TreeSet<E>(new DescendingComparator());
 
 
 
-#### Sort Method
+**Sort Method**
 
 - `descendingIterator()` - 내림차순으로 정렬된 Iterator 반환
   - Iterator\<E> descendingIterator()
@@ -153,7 +153,7 @@ TreeSet<E> treeSet = new TreeSet<E>(new DescendingComparator());
 
 
 
-#### Range Method
+**Range Method**
 
 - `headSet()` - 주어진 객체보다 낮은 객체들을 NavigableSet으로 반환, 두 번째 인자로 주어진 객체의 포함여부 파악
   - NavigableSet\<E> headSet(E e, boolean inclusive)
@@ -164,7 +164,7 @@ TreeSet<E> treeSet = new TreeSet<E>(new DescendingComparator());
 
 
 
-### Method
+### Set API
 
 - `add()`
   - boolean add(E e)
@@ -260,7 +260,9 @@ TreeMap<K, V> treeMap = new TreeMap<K, V>(new DescendingComparator());
 
 
 
-#### Search Method
+#### TreeMap API
+
+**Search Method**
 
 - `firstEntry()` - 제일 낮은 Entry 객체 반환
   - Map.Entry<K, V> firstEntry()
@@ -281,7 +283,7 @@ TreeMap<K, V> treeMap = new TreeMap<K, V>(new DescendingComparator());
 
 
 
-#### Sort Method
+**Sort Method**
 
 - `descendingKeySet()` - 내림차순으로 정렬된 NavigableSet 반환
   - NavigableSet\<E> descendingKeySet()
@@ -291,7 +293,7 @@ TreeMap<K, V> treeMap = new TreeMap<K, V>(new DescendingComparator());
 
 
 
-#### RangeMethod
+**RangeMethod**
 
 - `headSet()` - 주어진 객체보다 낮은 객체들을 NavigableMap으로 반환, 두 번째 인자로 주어진 객체의 포함여부 파악
   - NavigableMap<K, V> headSet(E e, boolean inclusive)
@@ -302,7 +304,7 @@ TreeMap<K, V> treeMap = new TreeMap<K, V>(new DescendingComparator());
 
 
 
-### Method
+### Map API
 
 - `put()`
   - V put(K key, V value)
