@@ -145,6 +145,28 @@ git fetch
 
 ### git stash
 
+git stash ( = git stash save )
+
+
+
+git stash list
+
+
+
+git stash show <stash_name>
+
+
+
+git stash pop
+
+적용 + 삭제
+
+
+
+git stash apply
+
+적용
+
 ```
 git stash
 git stash pop
