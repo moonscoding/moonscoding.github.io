@@ -147,13 +147,19 @@ git fetch
 
 git stash ( = git stash save )
 
+저장
+
 
 
 git stash list
 
+목록 조회 
+
 
 
 git stash show <stash_name>
+
+단건 정보 조회
 
 
 
@@ -526,5 +532,6 @@ git 저장소내에 입력시 Root Dir를 반환
 > 참조
 >
 > - [https://medium.com/@pks2974](https://medium.com/@pks2974/자주-사용하는-기초-git-명령어-정리하기-533b3689db81)
-> - https://opentutorials.org/course/3843/24443
-> - https://blog.outsider.ne.kr/572
+> - [https://opentutorials.org](https://opentutorials.org/course/3843/24443)
+> - [https://blog.outsider.ne.kr](https://blog.outsider.ne.kr/572)
+> - [https://git-scm.com/](https://git-scm.com/book/ko/v2/Git-도구-고급-Merge)

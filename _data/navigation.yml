@@ -17,23 +17,23 @@ main:
 docs:
   - title : JAVA
     children:
-      - title: "1. JVM"
+      - title: "01. JVM"
         url: /docs/jvm/
-      - title: "2. Native"
+      - title: "02. Native"
         url: /docs/native/
-      - title: "3. OOP"
+      - title: "03. OOP"
         url: /docs/oop/
-      - title: "4. Exception"
+      - title: "04. Exception"
         url: /docs/exception/
-      - title: "5. Collection"
+      - title: "05. Collection"
         url: /docs/collection/
-      - title: "6. Annotation"
+      - title: "06. Annotation"
         url: /docs/annotation/
-      - title: "7. Generic"
+      - title: "07. Generic"
         url: /docs/generic/
-      - title: "8. Lambda"
+      - title: "08. Lambda"
         url: /docs/lambda/
-      - title: "9. Stream"
+      - title: "09. Stream"
         url: /docs/stream/
       - title: "10. Socket"
         url: /docs/socket/
@@ -43,3 +43,11 @@ docs:
         url: /docs/reflection/
       - title: "13. Thread"
         url: /docs/thread/
+  - title: Spring
+    children:
+      - title: "01. DI & IOC"
+        url: /docs/jvm/
+  - title: DevOps
+    children:
+      - title: "01. Git"
+        url: /docs/jvm/
