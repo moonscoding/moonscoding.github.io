@@ -46,8 +46,18 @@ docs:
   - title: Spring
     children:
       - title: "01. DI & IOC"
-        url: /docs/jvm/
+        url: /docs/spring/di
+      - title: "02. AOP"
+        url: /docs/spring/aop
+      - title: "03. WEB"
+        url: /docs/spring/web
+      - title: "04. MVC"
+        url: /docs/spring/mvc
   - title: DevOps
     children:
       - title: "01. Git"
-        url: /docs/jvm/
+        url: /docs/devops/git
+      - title: "02. REST"
+        url: /docs/devops/rest
+      - title: "03. Docker"
+        url: /docs/devops/docker
