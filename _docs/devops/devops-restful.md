@@ -1,16 +1,3 @@
----
-
-title: "Devops REST"
-permalink: /docs/devops/rest
-
-toc: true
-toc_sticky: true
-toc_label: "My Table of Contents"
-toc_icon: "cog"
-typora-root-url: ../../../moonscoding.github.io
-
----
-
 ## REST 
 
 ```
@@ -79,8 +66,6 @@ REST API는 HTTP URL를 통해 Resource간의 계층 구조를 표현
 
 ### Relation
 
-
-
 > REST 개똥철학 Part1 - 데이터의 조회 범위는 어떻게 설정할 수 있을까 ?
 
 - [1] GET - /parent/:parentId/child
@@ -130,16 +115,6 @@ REST API는 HTTP URL를 통해 Resource간의 계층 구조를 표현
 
 
 
-카카오 OpenAPI 처리방식   `GET - /parent/child?parentId={parentId}`
-
-PathVariable을 통한 식별자를 두지 않고 QueryString으로만 조회조건을 관리
-
-- [장점] 하나의 API로 모두 처리가 가능
-
-- [단점] 단건처리와 목록처리의 경계가 명확하지 않음
-
-
-
 > REST 개똥철학 Part2 - 계층 구조에서 목록의 목록을 조회하고자 할때 어떻게 처리할 수 있을까?
 
 - [1] GET - /parent/:parentId/child
@@ -154,9 +129,7 @@ PathVariable을 통한 식별자를 두지 않고 QueryString으로만 조회조
 
 
 
-### Custom
-
-
+### Customizing
 
 >  REST 개똥철학 Part3 - 일반화된 API 외에 커스터마이징된 API를 구현할 수 있을까 ?
 
@@ -181,6 +154,22 @@ Swagger 혹은 KakaoOpenAPI 예제를 살펴보면 커스터마이징된 기능�
 
 
 즉, 일반적인 REST 규칙을 따르고 URL의 마지막에 부분에 자세한 행위 및 목적을 표현합니다.
+
+
+
+### NonPathVariable
+
+카카오 OpenAPI 처리방식에서 식별자를 PathVariable로 관리하지 않는 방식을 확인
+
+- GET - /parent/child?parentId={parentId}
+
+
+
+PathVariable을 통한 식별자를 두지 않고 QueryString으로만 조회조건을 관리
+
+- [장점] 하나의 API로 모두 처리가 가능
+
+- [단점] 일반화된 REST 처리방식이 아님 & 단건처리와 목록처리의 경계가 명확하지 않음
 
 
 

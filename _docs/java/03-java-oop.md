@@ -68,6 +68,12 @@ public class Company {
 
 
 
+> [Method - Guild1] 적시에 방어적 복사본
+
+클라이언트가 여러분의 불벽식을 깨뜨리려 혈안이 되어 있다고 가정하고 방어적인 프로그래밍
+
+
+
 #### Overloading vs Override
 
 - Overloading

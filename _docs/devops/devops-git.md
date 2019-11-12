@@ -356,11 +356,17 @@ git checkout -t <remote_url>/<branch_name>
 
 git merge <branch_name>
 
-- `--squash` 브랜치명의 모든 커밋을 하나의 커밋으로 만듬
-
 ```
 git checkout master
 git merge target
+```
+
+
+
+`--squash` 브랜치명의 모든 커밋을 하나의 커밋으로 만듬
+
+```
+git merge --squash target
 ```
 
 
@@ -424,7 +430,60 @@ git reset HEAD^
 
 git rebase -i <commit_range>
 
+
+
+> Commit 통합
+
 - `-i` 대화형모드로 커밋 순서를 변경하거나 합치는 작업 가능
+- 텍스트 에디터가 열리고 `HEAD`에서 `HEAD~~`까지 커밋이 표시
+  - `pick -> squash`로 변경하고 저장 & 종료 -> 두 개의 커밋이 하나의 커밋으로 통합
+
+```
+$ git rebase -i HEAD~~
+```
+
+```
+pick <commit_id_a> <commit_comment_a>
+pick <commit_id_b> <commit_comment_b>
+
+# Rebase ...
+# ~
+```
+
+
+
+> Commit 수정
+
+- `-i` 대화형모드로 커밋 순서를 변경하거나 합치는 작업 가능
+- 텍스트 에디터가 열리고 `HEAD`에서 `HEAD~~`까지 커밋이 표시
+  - `pick -> edit`으로 변경하고 저장 & 종료 -> 수정할 커밋이 체크아웃된 상태로 변경
+
+```
+$ git rebase -i HEAD~~
+```
+
+```
+pick <commit_id_a> <commit_comment_a>
+pick <commit_id_b> <commit_comment_b>
+
+# Rebase ...
+# ~
+```
+
+```
+Stopped at <commit_id> <commit_comment>
+You can amend the commit now, with
+
+        git commit --amend
+
+Once you are satisfied with your changes, run
+
+        git rebase --continue
+```
+
+
+
+
 
 
 

@@ -31,3 +31,33 @@ toc_icon: "cog"
 
 ## Inheritance
 
+
+
+
+
+## Casting
+
+>  List<T>에 대한 Input & Output Parameter Casting
+
+- `자료구조`간에 형변환은 자유롭지 않음
+
+```java
+public interface Parent { ... }
+
+public class Child implements Parent { ... }
+
+public class Main {
+    public static void main(String[] args) {}
+        Child c1 = new Child();
+        List<Child> c2 = new ArrayList<>();
+        
+        inputGenericType(c1); 
+        inputListGenericType(c2); // CompileError!
+    }
+    
+    public void inputGenericType(Parent in) { ... }
+    
+    public void inputListGenericType(List<Parent> in) { ... }
+}
+```
+

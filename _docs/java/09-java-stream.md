@@ -138,7 +138,7 @@ items.stream()
 
 - `flatMap()`, `flatMapToInt()`, `flatMapToLong()`, `flatMapToDouble()`
 
-- return Stream
+- return EntryStream - 각각의 분리된 Stream을 하나의 전체 스트림으로 통합하여 반환
 
 
 
@@ -199,7 +199,11 @@ DoubleStream doubleStream = intStream.asDoubleStream();
 
 
 
-### boxed()
+### boxed() & unboxed()
+
+
+
+**boxed()**
 
 - `int -> Integer`,  `long -> Long`, `double -> Double`
 
@@ -215,6 +219,18 @@ intStream.boxed().forEach(obj -> System.out.println(obj.intValue()));
 3
 4
 5
+```
+
+
+
+**unboxed()**
+
+- `Integer  -> int`, `Long -> long`, `Double -> double`
+- Native API 존재하지 않음
+
+```java
+stream().mapToInt(Integer::intValue);
+stream().flatMapToInt(IntStream::of);
 ```
 
 
@@ -256,7 +272,7 @@ public class Item implements Comparable<Item> {
 }
 
 List<Item> items = Arrays.asList(
-	new Item("apple", 102),
+  new Item("apple", 102),
   new Item("google", 101),
   new Item("facebook", 103)
 );
@@ -322,7 +338,9 @@ int sum = Arrays.stream(arr)
 
 
 
-### allMatch()
+### allMatch & anyMatch & noneMatch
+
+**allMatch()**
 
 - return -> boolean
 
@@ -338,7 +356,7 @@ true
 
 
 
-### anyMatch() 
+**anyMatch()** 
 
 ```java
 int[] arr = {2,4,6};
@@ -352,7 +370,7 @@ true
 
 
 
-### noneMatch()
+**noneMatch()**
 
 ```java
 int[] arr = {2,4,6};
@@ -366,16 +384,69 @@ false
 
 
 
+### findFirst & findAny
+
+- `findFirst()` - Optional
+- `findAny()` - Optional
+
+
+
+**findFirst()**
+
+```java
+int[] arr = {1,2,3,4};
+int first = Arrays.stream(arr)
+    .filter(a -> a % 2 == 0)
+    .findFirst()
+    .get();
+```
+
+```
+2
+```
+
+
+
+**findAny()**
+
+```java
+
+```
+
+
+
 ## Counting
 
 - `count()` - long
-- `findFirst()` - Optional
 - `max(Comparator<T>)` - Optional\<T>
 - `max()` - Optional 
 - `min(Comparator<T>)` - Optional\<T>
 - `min()` - Optional
 - `average()` - OptionalDouble
 - `sum()` - int, long, double
+
+
+
+**max() & min()**
+
+```java
+int[] arr = {1,2,3,4};
+int min = Arrays.stream(arr)
+    .min() 
+    .getAsInt();
+
+List<Integer> list = Arrays.asList(1,2,3,4);
+int min = list.stream()
+    .min(Integer::min) 
+    .get();
+```
+
+```
+1
+1
+```
+
+
 
 
 
@@ -485,8 +556,6 @@ HashSet itemSet = items.stream()
   - BiConsumer<R> - 생성된 컨테이너 객체에서  요소를 수집
   - BiConsumer<R, R> - 수집된 컨테이너 객체를 결합 (순차처리에서는 호출되지 않고 병렬처리에서만 호출)
 
-
-
 ```java
 @Data
 class ITCompany {
@@ -568,7 +637,7 @@ Map<Company.Category, List<String>> mapByCategory = totalList.stream()
 
 
 
-### Grouping + Counting
+### Grouping + Counting + Joining
 
 - `counting()`
 - `averagingDouble()`
@@ -586,8 +655,8 @@ Map<Company.Category, List<String>> mapByCategory = totalList.stream()
 Map<Company.Category, Double> mapByCategory = totalList.stream()
   .collect(
 		Collectors.groupingBy(
-    	Company::getCategory,
-    	Collectors.averagingDouble(Company::getCount)
+    		Company::getCategory,
+    		Collectors.averagingDouble(Company::getCount)
     )
 );
 ```
@@ -600,10 +669,10 @@ Map<Company.Category, Double> mapByCategory = totalList.stream()
 Map<Company.Category, String> mapByName = totalList.stream()
   .collect(
 		Collectors.groupingBy(
-    	Company::getCategory,
-    	Collectors.mapping(
-        Company::getName,
-      	Collectors.joining(",")
+    		Company::getCategory,
+    		Collectors.mapping(
+        		Company::getName,
+      			Collectors.joining(",")
       )
     )
 );

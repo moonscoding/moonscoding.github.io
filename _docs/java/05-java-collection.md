@@ -193,6 +193,14 @@ Iterator<String> iterator = set.iterator();
   - vold clear()
 - `remove()`
   - boolean remove(Object o)
+- `Set to List`
+
+```java
+Set set = new HashSet();
+List list = new ArrayList(set);
+```
+
+
 
 
 

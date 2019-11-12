@@ -236,6 +236,12 @@ $ docker build -t <repo>/<image>:<tag> <build_target_dir>
 
 
 
+docker-compose up -d
+
+
+
+docker-compose up 
+
 
 
 ## Docker Swarn
