@@ -1,5 +1,6 @@
 ---
 
+
 title: "Spring DI"
 permalink: /docs/spring/di
 
